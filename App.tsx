@@ -24,36 +24,17 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import Home from './src/screens/Home';
+import Test from './src/screens/Test';
+import Icon from 'react-native-vector-icons/FontAwesome'
+// import Icon1 from 'react-native-vector-icons/AntDesign'
 
 type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -62,37 +43,35 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  
+const Tab = createBottomTabNavigator();
+
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
+    <NavigationContainer>
+    <View >
+    
+    <View className='mt-10 ml-auto mr-auto bg-slate-300'><Text className='text-2xl'>Hello World <Icon name="bell" size={20} color="#3E3E3E"/></Text></View>
+    
+    <View className='h-[20vh]'>
+    <Tab.Navigator>
+      <Tab.Screen name="Home" 
+      options={{
+          tabBarIcon: ({ color, size }) => (
+            <Icon name="bell" size={20} color="#3E3E3E"/>
+          ),
+        }} 
+        component={Home} />
+      <Tab.Screen name="Settings" component={Test}
+      options={{
+        tabBarIcon: ({ color, size }) => (
+          <Icon name="home" size={20} color="#3E3E3E"/>
+        ),
+      }} 
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    </Tab.Navigator>
+    </View>
+    </View>
+    </NavigationContainer>
   );
 }
 
