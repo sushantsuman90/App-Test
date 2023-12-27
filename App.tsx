@@ -7,6 +7,7 @@
 
 import React from 'react';
 import {View} from 'react-native';
+import {Provider} from 'react-native-paper';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -35,10 +36,12 @@ function App(): React.JSX.Element {
   // };
 
   return (
-    <NavigationContainer>
-      <RaiseIssue />
-      {/* <Home /> */}
-    </NavigationContainer>
+    <Provider>
+      <NavigationContainer>
+        <RaiseIssue />
+        {/* <Home /> */}
+      </NavigationContainer>
+    </Provider>
   );
 }
 

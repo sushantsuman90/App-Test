@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
 import {
   Surface,
@@ -7,9 +7,13 @@ import {
   Text,
   TextInput,
   Icon,
+  TouchableRipple,
 } from 'react-native-paper';
+import DropDown from 'react-native-paper-dropdown';
 
 export default function RaiseIssue() {
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [issue, setIssue] = useState<string>('');
   return (
     <Surface style={styles.container}>
       <View className="p-2">
@@ -18,27 +22,34 @@ export default function RaiseIssue() {
           <Icon source="chevron-left" size={32} color="#241F61" />
           <Text className="text-2xl font-bold text-blue">Raise Issue</Text>
         </View>
-        <TextInput
-          placeholder="Write about the incident here"
-          label="Additional Info"
-          mode="outlined"
-          className="m-3 rounded-lg"
-          // style={styles.input}
-        />
-        <TextInput
-          placeholder="Write about the incident here"
-          label="Additional Info"
-          mode="outlined"
-          className="m-3 rounded-lg"
-          // style={styles.input}
-        />
-        <TextInput
-          placeholder="Write about the incident here"
-          label="Additional Info"
-          mode="outlined"
-          className="m-3 rounded-lg"
-          // style={styles.input}
-        />
+        <View className="flex-col gap-5 px-3">
+          <View className="my-1">
+            <DropDown
+              label={'Type Of Issue'}
+              mode={'outlined'}
+              visible={showDropDown}
+              showDropDown={() => setShowDropDown(true)}
+              onDismiss={() => setShowDropDown(false)}
+              value={issue}
+              setValue={setIssue}
+              list={dropdownList}
+            />
+          </View>
+
+          <TouchableRipple className="border p-3 rounded-2xl">
+            <View className="">
+              <Text>Enter the Location of the Incident</Text>
+            </View>
+          </TouchableRipple>
+
+          <TextInput
+            placeholder="Write about the incident here"
+            label="Additional Info"
+            mode="outlined"
+            className="rounded-lg"
+          />
+        </View>
+
         <View className="self-center">
           <IconButton
             mode="contained"
@@ -65,3 +76,38 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+const dropdownList = [
+  {
+    label: 'Road/Payment Issue',
+    value: 'road-payment-issue',
+  },
+  {
+    label: 'Street Lighting',
+    value: 'street-lighting',
+  },
+  {
+    label: 'Electricity Issue',
+    value: 'electricity-issue',
+  },
+  {
+    label: 'Trimming Trees',
+    value: 'trimming-trees',
+  },
+  {
+    label: 'Sewerage',
+    value: 'sewerage',
+  },
+  {
+    label: 'Water',
+    value: 'water-issue',
+  },
+  {
+    label: 'Health',
+    value: 'health-issue',
+  },
+  {
+    label: 'Other',
+    value: 'other-issue',
+  },
+];
