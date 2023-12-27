@@ -10,14 +10,15 @@ import {
   TouchableRipple,
 } from 'react-native-paper';
 import DropDown from 'react-native-paper-dropdown';
+import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 
 export default function RaiseIssue() {
   const [showDropDown, setShowDropDown] = useState(false);
   const [issue, setIssue] = useState<string>('');
   return (
     <Surface style={styles.container}>
+      <RaiseIssueTopAppBar />
       <View className="p-2">
-        <Text className="p-5 text-2xl font-bold text-blue">Ward 111</Text>
         <View className="flex-row items-center my-[5vh]">
           <Icon source="chevron-left" size={32} color="#241F61" />
           <Text className="text-2xl font-bold text-blue">Raise Issue</Text>
