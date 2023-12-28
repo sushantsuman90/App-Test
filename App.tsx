@@ -19,6 +19,7 @@ import HighlightScreen from './src/screens/HighlightScreen';
 import SchemeScreen from './src/screens/SchemeScreen';
 
 import RaiseIssue from './src/screens/RaiseIssue';
+import RaiseIssueMapSelector from './src/screens/RaiseIssueMapSelector';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +39,8 @@ function App(): React.JSX.Element {
   return (
     <Provider>
       <NavigationContainer>
-        <RaiseIssue />
+        {/* <RaiseIssue /> */}
+        <RaiseIssueMapSelector />
         {/* <Home /> */}
       </NavigationContainer>
     </Provider>
