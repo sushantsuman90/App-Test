@@ -1,18 +1,64 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Surface, Text, IconButton, Button} from 'react-native-paper';
+import {
+  Surface,
+  Text,
+  IconButton,
+  Button,
+  Portal,
+  Modal,
+  TextInput,
+} from 'react-native-paper';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 
 export default function RaiseIssueMapSelector() {
+  const [manualAddressVisible, setManualAddressVisible] = React.useState(false);
+
   return (
     <Surface style={styles.container}>
+      <Portal>
+        <Modal
+          visible={manualAddressVisible}
+          onDismiss={() => setManualAddressVisible(false)}
+          contentContainerStyle={styles.modalContainerStyle}>
+          <View className="flex-row items-center justify-between">
+            <Text className="text-xl text-blue">Enter Address</Text>
+            <IconButton
+              icon="close"
+              onTouchStart={() => setManualAddressVisible(false)}
+            />
+          </View>
+
+          <TextInput
+            mode="outlined"
+            label="Area/ Sector/ Locality"
+            placeholder=""
+          />
+          <TextInput
+            mode="outlined"
+            label="Nearby landmark"
+            placeholder="Enter a nearby landmark"
+          />
+          <TextInput
+            mode="outlined"
+            label="Pincode"
+            placeholder="Enter the pincode"
+          />
+          <TextInput
+            mode="outlined"
+            label="Full Address"
+            placeholder="Write the full address"
+          />
+
+          <Button
+            className="bg-blue rounded-lg m-4 w-[200px] self-center"
+            textColor="#fff">
+            Confirm
+          </Button>
+        </Modal>
+      </Portal>
+
       <RaiseIssueTopAppBar />
-      {/* <TextInput
-        mode="outlined"
-        right={<TextInput.Icon icon="magnify" />}
-        className="m-4"
-        label="Search Area, Street name"
-      /> */}
 
       <View className="border rounded-2xl px-4 mx-4 flex-row justify-between items-center">
         <Text>Search for Area, Street Name</Text>
@@ -27,7 +73,9 @@ export default function RaiseIssueMapSelector() {
           <IconButton icon="map-marker" size={20} />
         </View>
 
-        <View className="flex-row items-center justify-center border">
+        <View
+          className="flex-row items-center justify-center border"
+          onTouchStart={() => setManualAddressVisible(true)}>
           <Text className="text-md">Enter Address Manually</Text>
           <IconButton icon="circle-edit-outline" size={20} />
         </View>
@@ -44,9 +92,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  image: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
+  modalContainerStyle: {
+    backgroundColor: 'white',
+    padding: 30,
+    margin: 20,
+    flexDirection: 'column',
+    gap: 12,
+    borderRadius: 17,
   },
 });
