@@ -8,15 +8,41 @@ import {
   TextInput,
   Icon,
   TouchableRipple,
+  Portal,
+  Modal,
 } from 'react-native-paper';
 import DropDown from 'react-native-paper-dropdown';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
+import RaiseIssueModalHeading from '../components/RaiseIssueModalHeading';
 
 export default function RaiseIssue() {
   const [showDropDown, setShowDropDown] = useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
   const [issue, setIssue] = useState<string>('');
   return (
     <Surface style={styles.container}>
+      <Portal>
+        <Modal
+          visible={modalVisible}
+          onDismiss={() => setModalVisible(false)}
+          contentContainerStyle={styles.modalContainerStyle}>
+          <RaiseIssueModalHeading
+            heading="Choose An Option"
+            onClick={() => setModalVisible(false)}
+          />
+          <View className="flex-col gap-2">
+            <View className="pl-4 border flex-row justify-between items-center rounded-xl">
+              <Text>Upload Form Gallary</Text>
+              <IconButton icon="camera" />
+            </View>
+            <View className="pl-4 border flex-row justify-between items-center rounded-xl">
+              <Text>Take a Picture</Text>
+              <IconButton icon="image-size-select-actual" />
+            </View>
+          </View>
+        </Modal>
+      </Portal>
+
       <RaiseIssueTopAppBar />
       <View className="p-2">
         <View className="flex-row items-center my-[5vh]">
@@ -51,13 +77,14 @@ export default function RaiseIssue() {
           />
         </View>
 
-        <View className="self-center">
+        <View className="self-center m-4">
           <IconButton
             mode="contained"
             icon="camera"
             className="m-2 w-[200px]"
             iconColor="#fff"
             containerColor="#241F61"
+            onPress={() => setModalVisible(true)}
           />
           <Text className="self-center">Click/Upload Picture</Text>
         </View>
@@ -75,6 +102,14 @@ export default function RaiseIssue() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  modalContainerStyle: {
+    backgroundColor: 'white',
+    padding: 30,
+    margin: 20,
+    flexDirection: 'column',
+    gap: 12,
+    borderRadius: 17,
   },
 });
 

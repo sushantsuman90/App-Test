@@ -39,8 +39,8 @@ function App(): React.JSX.Element {
   return (
     <Provider>
       <NavigationContainer>
-        {/* <RaiseIssue /> */}
-        <RaiseIssueMapSelector />
+        <RaiseIssue />
+        {/* <RaiseIssueMapSelector /> */}
         {/* <Home /> */}
       </NavigationContainer>
     </Provider>

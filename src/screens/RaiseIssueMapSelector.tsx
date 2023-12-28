@@ -10,6 +10,7 @@ import {
   TextInput,
 } from 'react-native-paper';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
+import RaiseIssueModalHeading from '../components/RaiseIssueModalHeading';
 
 export default function RaiseIssueMapSelector() {
   const [manualAddressVisible, setManualAddressVisible] = React.useState(false);
@@ -21,13 +22,10 @@ export default function RaiseIssueMapSelector() {
           visible={manualAddressVisible}
           onDismiss={() => setManualAddressVisible(false)}
           contentContainerStyle={styles.modalContainerStyle}>
-          <View className="flex-row items-center justify-between">
-            <Text className="text-xl text-blue">Enter Address</Text>
-            <IconButton
-              icon="close"
-              onTouchStart={() => setManualAddressVisible(false)}
-            />
-          </View>
+          <RaiseIssueModalHeading
+            onClick={() => setManualAddressVisible(false)}
+            heading="Enter Address"
+          />
 
           <TextInput
             mode="outlined"
