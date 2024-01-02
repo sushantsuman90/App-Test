@@ -14,8 +14,14 @@ import {
 import DropDown from 'react-native-paper-dropdown';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 import RaiseIssueModalHeading from '../components/RaiseIssueModalHeading';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
-export default function RaiseIssue() {
+interface RaiseIssueProp {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'RaiseIssue'>;
+}
+
+export default function RaiseIssue({}: RaiseIssueProp) {
   const [showDropDown, setShowDropDown] = useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
   const [issue, setIssue] = useState<string>('');
