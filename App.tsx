@@ -15,6 +15,7 @@ import RaiseIssue from './src/screens/RaiseIssue';
 import RaiseIssueMapSelector from './src/screens/RaiseIssueMapSelector';
 import HomeScreenSearch from './src/screens/HomeScreenSearch';
 import EditProfile from './src/screens/ProfileEditScreen';
+import LiveStreamScreen from './src/screens/LiveStreamScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ export type RootStackParamList = {
   RaiseIssueMapSelector: undefined;
   HomeScreenSearch: undefined;
   EditProfile: undefined;
+  LiveStream: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -44,6 +46,7 @@ function App(): React.JSX.Element {
             component={HomeScreenSearch}
           />
           <Stack.Screen name="EditProfile" component={EditProfile} />
+          <Stack.Screen name="LiveStream" component={LiveStreamScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
