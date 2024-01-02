@@ -2,6 +2,8 @@ import {Surface, Text, TextInput} from 'react-native-paper';
 import Input from '../components/Input';
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
 const mostUsedServices = [
   'Public Health',
@@ -10,7 +12,11 @@ const mostUsedServices = [
   'OBC Certificate',
 ];
 
-const HomeScreenSearch: React.FC = () => {
+interface HomeScreenSearchProps {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreenSearch'>;
+}
+
+const HomeScreenSearch = ({}: HomeScreenSearchProps) => {
   return (
     <Surface style={styles.container}>
       <Input

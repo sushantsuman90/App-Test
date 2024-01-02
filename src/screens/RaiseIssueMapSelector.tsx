@@ -11,8 +11,17 @@ import {
 } from 'react-native-paper';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 import RaiseIssueModalHeading from '../components/RaiseIssueModalHeading';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
-export default function RaiseIssueMapSelector() {
+interface RaiseIssueMapSelectorProp {
+  navigation: NativeStackNavigationProp<
+    RootStackParamList,
+    'RaiseIssueMapSelector'
+  >;
+}
+
+export default function RaiseIssueMapSelector({}: RaiseIssueMapSelectorProp) {
   const [manualAddressVisible, setManualAddressVisible] = React.useState(false);
 
   return (

@@ -3,6 +3,8 @@ import Input from '../components/Input';
 import {Surface, Appbar, Portal, Dialog, Text} from 'react-native-paper';
 import {StyleSheet} from 'react-native';
 import Button from '../components/Button';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../App';
 
 interface Profile {
   name: string;
@@ -18,7 +20,11 @@ const initState: Profile = {
   partNo: 'XXXX-XXXX-XX',
 };
 
-export default function EditProfile() {
+interface EditProfileProps {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'EditProfile'>;
+}
+
+export default function EditProfile({}: EditProfileProps) {
   const [dialogVisible, setDialogVisible] = useState<boolean>(false);
   const [value, setValue] = useState(initState);
   const handleChange = (e: string | number, key: string) => {
