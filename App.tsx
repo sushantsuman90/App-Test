@@ -22,6 +22,7 @@ import SchemeScreen from './src/screens/SchemeScreen';
 import RaiseIssue from './src/screens/RaiseIssue';
 import RaiseIssueMapSelector from './src/screens/RaiseIssueMapSelector';
 import HomeScreenSearch from './src/screens/HomeScreenSearch';
+import EditProfile from './src/screens/ProfileEditScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -55,6 +56,7 @@ function App(): React.JSX.Element {
             name="home-screen-search"
             component={HomeScreenSearch}
           />
+          <Stack.Screen name="edit-profile" component={EditProfile} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
