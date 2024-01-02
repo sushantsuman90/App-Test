@@ -10,6 +10,7 @@ import {View} from 'react-native';
 import {Provider} from 'react-native-paper';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import TopAppBar from './src/components/TopAppBar';
 
@@ -22,6 +23,7 @@ import RaiseIssue from './src/screens/RaiseIssue';
 import RaiseIssueMapSelector from './src/screens/RaiseIssueMapSelector';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 // import Icon1 from 'react-native-vector-icons/AntDesign'
 
@@ -39,9 +41,14 @@ function App(): React.JSX.Element {
   return (
     <Provider>
       <NavigationContainer>
-        <RaiseIssue />
-        {/* <RaiseIssueMapSelector /> */}
-        {/* <Home /> */}
+        <Stack.Navigator>
+          <Stack.Screen name="home" component={Home} />
+          <Stack.Screen name="raise-issue" component={RaiseIssue} />
+          <Stack.Screen
+            name="raise-issue-map-selector"
+            component={RaiseIssueMapSelector}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );
