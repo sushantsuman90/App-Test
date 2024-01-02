@@ -2076,7 +2076,7 @@
     "@types/react" "*"
     "@types/react-native" "^0.70"
 
-"@types/react-native@^0.70":
+"@types/react-native@*", "@types/react-native@^0.70":
   version "0.70.19"
   resolved "https://registry.npmjs.org/@types/react-native/-/react-native-0.70.19.tgz"
   integrity sha512-c6WbyCgWTBgKKMESj/8b4w+zWcZSsCforson7UdXtXMecG3MxCinYi6ihhrHVPyUrVzORsvEzK8zg32z4pK6Sg==
@@ -6072,7 +6072,12 @@ react-is@^17.0.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-paper@^5.11.4:
+react-native-paper-dropdown@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/react-native-paper-dropdown/-/react-native-paper-dropdown-1.0.7.tgz"
+  integrity sha512-St0rZFw5sC7mbXtFCOGsyEa0fIBaG6Cfz78RsjFNzTj+rKd1i9qlDY2O7eOa2zAUEnFlL+C7FXdXUY9RUNELNw==
+
+react-native-paper@*, react-native-paper@^5.11.4:
   version "5.11.4"
   resolved "https://registry.npmjs.org/react-native-paper/-/react-native-paper-5.11.4.tgz"
   integrity sha512-pi48Qp1KLsU1dtnup3NsbZmpp9RrPGZIMeTK0o6KukK1YdBcmBQyMb1/sYHt1dE4pccXLQXbSVZjzNZfmxUGyQ==
@@ -7086,7 +7091,7 @@ typed-array-length@^1.0.4:
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
 
-"typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@5.0.4:
+typescript@*, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", typescript@5.0.4:
   version "5.0.4"
   resolved "https://registry.npmjs.org/typescript/-/typescript-5.0.4.tgz"
   integrity sha512-cW9T5W9xY37cc+jfEnaUvX91foxtHkza3Nw3wkoF4sSlKn0MONdkdEndig/qPBWXNkmplh3NzayQzCiHM4/hqw==
