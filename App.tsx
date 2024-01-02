@@ -21,6 +21,7 @@ import SchemeScreen from './src/screens/SchemeScreen';
 
 import RaiseIssue from './src/screens/RaiseIssue';
 import RaiseIssueMapSelector from './src/screens/RaiseIssueMapSelector';
+import HomeScreenSearch from './src/screens/HomeScreenSearch';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -41,12 +42,18 @@ function App(): React.JSX.Element {
   return (
     <Provider>
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName="home">
           <Stack.Screen name="home" component={Home} />
           <Stack.Screen name="raise-issue" component={RaiseIssue} />
           <Stack.Screen
             name="raise-issue-map-selector"
             component={RaiseIssueMapSelector}
+          />
+          <Stack.Screen
+            name="home-screen-search"
+            component={HomeScreenSearch}
           />
         </Stack.Navigator>
       </NavigationContainer>
