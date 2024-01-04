@@ -33,7 +33,7 @@ export default function HomeScreenTab() {
           {socialLinkList.map((item, index) => (
             <View key={index} className="flex-row justify-between p-3">
               {Object.entries(item).map(([platform, link]) => (
-                <SocialIcon icon={platform} text={link} />
+                <SocialIcon icon={platform} text={link} key={platform}/>
               ))}
             </View>
           ))}
