@@ -10,7 +10,7 @@ import {
   TextInput,
 } from 'react-native-paper';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
-import RaiseIssueModalHeading from '../components/RaiseIssueModalHeading';
+import RaiseIssueModalHeading from '../components/ModalHeading';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 
