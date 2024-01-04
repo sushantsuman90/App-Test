@@ -1,11 +1,44 @@
 import {Text, Surface, IconButton} from 'react-native-paper';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import Button from '../../components/Button';
+import {Portal, Modal} from 'react-native-paper';
+import ModalHeading from '../../components/ModalHeading';
+import SocialIcon from '../../components/SocialIcon';
+
+const socialLinkList = [
+  {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
+  {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
+  {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
+];
 
 export default function HomeScreenTab() {
+  const [socialLinkVisible, setSocialLinkVisible] = React.useState(false);
+
+  const handleToogleSocialLinkModal = () => {
+    setSocialLinkVisible(!socialLinkVisible);
+  };
+
   return (
     <Surface style={styles.container}>
+      <Portal>
+        <Modal
+          visible={socialLinkVisible}
+          onDismiss={handleToogleSocialLinkModal}
+          contentContainerStyle={styles.modalContainer}>
+          <ModalHeading
+            onClick={handleToogleSocialLinkModal}
+            heading="Given a Follow"
+          />
+          {socialLinkList.map((item, index) => (
+            <View key={index} className="flex-row justify-between p-3">
+              {Object.entries(item).map(([platform, link]) => (
+                <SocialIcon icon={platform} text={link} key={platform}/>
+              ))}
+            </View>
+          ))}
+        </Modal>
+      </Portal>
       <View style={styles.gridContainer}>
         <View
           style={[styles.quickSectionContainer, {backgroundColor: '#241F61'}]}>
@@ -20,31 +53,20 @@ export default function HomeScreenTab() {
             onPress={() => console.log('Pressed')}
           />
         </View>
-        <View style={styles.quickSectionContainer}>
+        <TouchableOpacity
+          style={styles.quickSectionContainer}
+          onPress={handleToogleSocialLinkModal}>
           <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-            <IconButton
-              icon="facebook"
-              size={20}
-              onPress={() => console.log('Pressed')}
-            />
-            <IconButton
-              icon="instagram"
-              size={20}
-              onPress={() => console.log('Pressed')}
-            />
-            <IconButton
-              icon="twitter"
-              size={20}
-              onPress={() => console.log('Pressed')}
-            />
+            <IconButton icon="facebook" size={20} />
+            <IconButton icon="instagram" size={20} />
+            <IconButton icon="twitter" size={20} />
           </View>
           <IconButton
             icon="arrow-right"
             size={16}
-            onPress={() => console.log('Pressed')}
             style={{alignSelf: 'center'}}
           />
-        </View>
+        </TouchableOpacity>
         <View style={styles.quickSectionContainer}>
           <Text style={[styles.quickSectionText, {color: '#241F61'}]}>
             Service Offered
@@ -151,5 +173,11 @@ const styles = StyleSheet.create({
   raiseIssueButton: {
     justifyContent: 'center',
     width: 150,
+  },
+  modalContainer: {
+    backgroundColor: 'white',
+    padding: 20,
+    margin: 20,
+    borderRadius: 20,
   },
 });

@@ -9,10 +9,14 @@ export default function TopAppBar({navigation}: HomeScreenProp) {
       <IconButton
         icon="account-circle"
         iconColor="#fff"
-        onMagicTap={() => navigation.navigate('HomeScreenSearch')}
+        onPress={() => navigation.navigate('EditProfile')}
       />
       <Text className="text-white">KMC</Text>
-      <IconButton icon="magnify" iconColor="#fff" />
+      <IconButton
+        icon="magnify"
+        iconColor="#fff"
+        onPress={() => navigation.navigate('HomeScreenSearch')}
+      />
     </View>
   );
 }

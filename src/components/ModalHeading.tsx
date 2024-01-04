@@ -7,7 +7,7 @@ interface Props {
   heading: string;
 }
 
-export default function RaiseIssueModalHeading(props: Props) {
+export default function ModalHeading(props: Props) {
   return (
     <View className="flex-row items-center justify-between">
       <Text className="text-xl text-blue">{props.heading}</Text>
