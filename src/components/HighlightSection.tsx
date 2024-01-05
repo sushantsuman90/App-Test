@@ -1,7 +1,7 @@
 import {View, ScrollView} from 'react-native';
 import React from 'react';
 import {Text} from 'react-native-paper';
-import ImageCard from './ImageCard';
+import ImageCard from './HighlightImageCard';
 
 interface Data {
   imageSrc: string;
