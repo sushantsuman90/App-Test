@@ -5,6 +5,9 @@ import Button from '../../components/Button';
 import {Portal, Modal} from 'react-native-paper';
 import ModalHeading from '../../components/ModalHeading';
 import SocialIcon from '../../components/SocialIcon';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackParamList } from '../../../App';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 const socialLinkList = [
   {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
@@ -12,12 +15,20 @@ const socialLinkList = [
   {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
 ];
 
-export default function HomeScreenTab() {
+interface HomeScreenProps{
+  navigation:NativeStackNavigationProp<RootStackParamList,'HomeScreen'>
+  
+}
+
+export default function HomeScreenTab({navigation}:HomeScreenProps) {
   const [socialLinkVisible, setSocialLinkVisible] = React.useState(false);
 
   const handleToogleSocialLinkModal = () => {
     setSocialLinkVisible(!socialLinkVisible);
   };
+
+  const navigator = useNavigation();
+
 
   return (
     <Surface style={styles.container}>
@@ -110,7 +121,7 @@ export default function HomeScreenTab() {
         </View>
       </View>
       <View style={styles.buttons}>
-        <Button onPress={() => {}} style={styles.raiseIssueButton}>
+        <Button onPress={() => navigation.navigate("RaiseIssue")} style={styles.raiseIssueButton}>
           Raise Issue
           {/*<IconButton*/}
           {/*  icon="information-variant"*/}
