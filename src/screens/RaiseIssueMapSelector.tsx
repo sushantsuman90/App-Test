@@ -8,6 +8,7 @@ import {
   Portal,
   Modal,
   TextInput,
+  TouchableRipple,
 } from 'react-native-paper';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 import RaiseIssueModalHeading from '../components/ModalHeading';
@@ -79,13 +80,14 @@ export default function RaiseIssueMapSelector({}: RaiseIssueMapSelectorProp) {
           <Text className="text-md">Use my Current Location</Text>
           <IconButton icon="map-marker" size={20} />
         </View>
-
-        <View
-          className="flex-row items-center justify-center border"
-          onTouchStart={() => setManualAddressVisible(true)}>
-          <Text className="text-md">Enter Address Manually</Text>
-          <IconButton icon="circle-edit-outline" size={20} />
-        </View>
+        <TouchableRipple onPress={() => setManualAddressVisible(true)}>
+          <View
+            className="flex-row items-center justify-center border"
+            >
+            <Text className="text-md">Enter Address Manually</Text>
+            <IconButton icon="circle-edit-outline" size={20} />
+          </View>
+        </TouchableRipple>
       </View>
 
       <Button className="bg-blue rounded-lg m-4" textColor="#fff">

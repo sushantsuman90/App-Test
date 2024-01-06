@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
-import {TextInput as PaperTextInput, useTheme} from 'react-native-paper';
+import {TextInput, useTheme} from 'react-native-paper';
 import {View, StyleSheet} from 'react-native';
 
 interface InputProps {
   value: string;
-  placeholder: string;
+  placeholder?: string;
+  label: string;
   onChangeText?: (text: string) => void;
   right?: React.ReactNode;
+  className?: string;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,6 +16,8 @@ const Input: React.FC<InputProps> = ({
   onChangeText,
   value,
   right,
+  label,
+  className = '',
 }) => {
   const [text, setText] = useState(value);
   const theme = useTheme();
@@ -26,9 +30,10 @@ const Input: React.FC<InputProps> = ({
   };
 
   return (
-    <View style={styles.container}>
-      <PaperTextInput
-        label={placeholder}
+    <View style={styles.container} className={className}>
+      <TextInput
+        label={label}
+        placeholder={placeholder}
         value={text}
         mode="outlined"
         onChangeText={handleTextChange}
@@ -42,7 +47,8 @@ const Input: React.FC<InputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    margin: 18,
+    marginLeft: 18,
+    marginTop: 18,
   },
   inputOutlineStyle: {
     borderRadius: 14,

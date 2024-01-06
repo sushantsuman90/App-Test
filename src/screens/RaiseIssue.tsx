@@ -5,7 +5,6 @@ import {
   IconButton,
   Button,
   Text,
-  TextInput,
   Icon,
   TouchableRipple,
   Portal,
@@ -16,12 +15,13 @@ import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 import RaiseIssueModalHeading from '../components/ModalHeading';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
+import Input from '../components/Input';
 
 interface RaiseIssueProp {
   navigation: NativeStackNavigationProp<RootStackParamList, 'RaiseIssue'>;
 }
 
-export default function RaiseIssue({}: RaiseIssueProp) {
+export default function RaiseIssue({navigation}: RaiseIssueProp) {
   const [showDropDown, setShowDropDown] = useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
   const [issue, setIssue] = useState<string>('');
@@ -37,14 +37,18 @@ export default function RaiseIssue({}: RaiseIssueProp) {
             onClick={() => setModalVisible(false)}
           />
           <View className="flex-col gap-2">
-            <View className="pl-4 border flex-row justify-between items-center rounded-xl">
-              <Text>Upload Form Gallary</Text>
-              <IconButton icon="camera" />
-            </View>
-            <View className="pl-4 border flex-row justify-between items-center rounded-xl">
-              <Text>Take a Picture</Text>
-              <IconButton icon="image-size-select-actual" />
-            </View>
+            <TouchableRipple>
+              <View className="pl-4 border flex-row justify-between items-center rounded-xl">
+                <Text>Upload Form Gallary</Text>
+                <IconButton icon="camera" />
+              </View>
+            </TouchableRipple>
+            <TouchableRipple>
+              <View className="pl-4 border flex-row justify-between items-center rounded-xl">
+                <Text>Take a Picture</Text>
+                <IconButton icon="image-size-select-actual" />
+              </View>
+            </TouchableRipple>
           </View>
         </Modal>
       </Portal>
@@ -75,11 +79,10 @@ export default function RaiseIssue({}: RaiseIssueProp) {
             </View>
           </TouchableRipple>
 
-          <TextInput
+          <Input
             placeholder="Write about the incident here"
             label="Additional Info"
-            mode="outlined"
-            className="rounded-lg"
+            value=""
           />
         </View>
 
@@ -95,6 +98,7 @@ export default function RaiseIssue({}: RaiseIssueProp) {
           <Text className="self-center">Click/Upload Picture</Text>
         </View>
         <Button
+          onPress={() => navigation.navigate('RaiseIssueMapSelector')}
           className="mx-5 my-2 mt-7 rounded-lg"
           mode="contained"
           buttonColor="#241F61">
