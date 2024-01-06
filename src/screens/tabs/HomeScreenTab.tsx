@@ -1,13 +1,13 @@
-import {Text, Surface, IconButton} from 'react-native-paper';
+import {Text, Surface, IconButton, TouchableRipple} from 'react-native-paper';
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import Button from '../../components/Button';
 import {Portal, Modal} from 'react-native-paper';
 import ModalHeading from '../../components/ModalHeading';
 import SocialIcon from '../../components/SocialIcon';
-import { useNavigation } from '@react-navigation/native';
-import { RootStackParamList } from '../../../App';
-import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import {useNavigation} from '@react-navigation/native';
+import {RootStackParamList} from '../../../App';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 const socialLinkList = [
   {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
@@ -15,12 +15,11 @@ const socialLinkList = [
   {instagram: 'Lorem ipsum', twitter: 'Lorem ipsum', facebook: 'Lorem ipsum'},
 ];
 
-interface HomeScreenProps{
-  navigation:NativeStackNavigationProp<RootStackParamList,'HomeScreen'>
-  
+interface HomeScreenProps {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
 }
 
-export default function HomeScreenTab({navigation}:HomeScreenProps) {
+export default function HomeScreenTab({navigation}: HomeScreenProps) {
   const [socialLinkVisible, setSocialLinkVisible] = React.useState(false);
 
   const handleToogleSocialLinkModal = () => {
@@ -28,7 +27,6 @@ export default function HomeScreenTab({navigation}:HomeScreenProps) {
   };
 
   const navigator = useNavigation();
-
 
   return (
     <Surface style={styles.container}>
@@ -44,7 +42,7 @@ export default function HomeScreenTab({navigation}:HomeScreenProps) {
           {socialLinkList.map((item, index) => (
             <View key={index} className="flex-row justify-between p-3">
               {Object.entries(item).map(([platform, link]) => (
-                <SocialIcon icon={platform} text={link} key={platform}/>
+                <SocialIcon icon={platform} text={link} key={platform} />
               ))}
             </View>
           ))}
@@ -78,18 +76,25 @@ export default function HomeScreenTab({navigation}:HomeScreenProps) {
             style={{alignSelf: 'center'}}
           />
         </TouchableOpacity>
-        <View style={styles.quickSectionContainer}>
-          <Text style={[styles.quickSectionText, {color: '#241F61'}]}>
-            Service Offered
-          </Text>
-          <IconButton
-            icon="arrow-right"
-            onPress={() => console.log('Pressed')}
-            containerColor="#241F61"
-            size={16}
-            iconColor="#fff"
-          />
-        </View>
+        <TouchableRipple
+          className="w-[48%] mb-[10px] border rounded-[11px]"
+          onPress={() => navigation.navigate('Services')}>
+          <View className="flex-row justify-between">
+            <Text style={[styles.quickSectionText, {color: '#241F61'}]}>
+              Service Offered
+            </Text>
+            <IconButton
+              icon="arrow-right"
+              onPress={() => console.log('Pressed')}
+              containerColor="#241F61"
+              size={16}
+              iconColor="#fff"
+            />
+          </View>
+        </TouchableRipple>
+        {/* <View>
+
+        </View> */}
         <View style={styles.quickSectionContainer}>
           <Text style={[styles.quickSectionText, {color: '#FF0000'}]}>
             Live Sports
@@ -121,7 +126,9 @@ export default function HomeScreenTab({navigation}:HomeScreenProps) {
         </View>
       </View>
       <View style={styles.buttons}>
-        <Button onPress={() => navigation.navigate("RaiseIssue")} style={styles.raiseIssueButton}>
+        <Button
+          onPress={() => navigation.navigate('RaiseIssue')}
+          style={styles.raiseIssueButton}>
           Raise Issue
           {/*<IconButton*/}
           {/*  icon="information-variant"*/}
