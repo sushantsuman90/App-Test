@@ -92,21 +92,22 @@ export default function HomeScreenTab({navigation}: HomeScreenProps) {
             />
           </View>
         </TouchableRipple>
-        {/* <View>
-
-        </View> */}
-        <View style={styles.quickSectionContainer}>
-          <Text style={[styles.quickSectionText, {color: '#FF0000'}]}>
-            Live Sports
-          </Text>
-          <IconButton
-            icon="arrow-right"
-            containerColor="#FF0000"
-            iconColor="#fff"
-            size={16}
-            onPress={() => console.log('Pressed')}
-          />
-        </View>
+        <TouchableRipple
+          className="w-[48%] mb-[10px] border rounded-[11px]"
+          onPress={() => navigation.navigate('LiveStream')}>
+          <View className="flex-row justify-between">
+            <Text style={[styles.quickSectionText, {color: '#FF0000'}]}>
+              Live Sports
+            </Text>
+            <IconButton
+              icon="arrow-right"
+              containerColor="#FF0000"
+              iconColor="#fff"
+              size={16}
+              onPress={() => console.log('Pressed')}
+            />
+          </View>
+        </TouchableRipple>
       </View>
       <Text style={{color: '#231E60', padding: 12}} variant="titleLarge">
         Notice Board
