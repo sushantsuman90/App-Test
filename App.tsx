@@ -38,7 +38,7 @@ function App(): React.JSX.Element {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="Services">
+          initialRouteName="HomeScreen">
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="RaiseIssue" component={RaiseIssue} />
           <Stack.Screen
