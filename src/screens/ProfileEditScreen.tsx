@@ -64,22 +64,22 @@ export default function EditProfile({}: EditProfileProps) {
           <Appbar.Content title="Edit Profile" />
         </Appbar>
         <Input
-          placeholder="Name"
+          label="Name"
           value={value.name}
           onChangeText={e => handleChange(e, 'name')}
         />
         <Input
-          placeholder="Mobile No."
+          label="Mobile No."
           value={value.mobile.toString()}
           onChangeText={e => handleChange(Number(e), 'mobile')}
         />
         <Input
-          placeholder="Address"
+          label="Address"
           value={value.address}
           onChangeText={e => handleChange(e, 'address')}
         />
         <Input
-          placeholder="Part No."
+          label="Part No."
           value={value.partNo}
           onChangeText={e => handleChange(e, 'partNo')}
         />

@@ -19,6 +19,7 @@ import LiveStreamScreen from './src/screens/LiveStreamScreen';
 import ServicesScreen from './src/screens/ServicesScreen';
 import MeetAndGreetScreen from './src/screens/MeetAndGreetScreen';
 import ConfirmOtp from './src/screens/ConfirmOtp';
+import OnboardingScreen from './src/screens/OnboardingScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,8 @@ export type RootStackParamList = {
   LiveStream: undefined;
   Services: undefined;
   MeetAndGreetScreen: undefined;
-  ConfirmOtp: undefined
+  ConfirmOtp: undefined;
+  OnboardingScreen: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -40,22 +42,23 @@ function App(): React.JSX.Element {
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{headerShown: false}}
-          initialRouteName="HomeScreen">
+          initialRouteName="OnboardingScreen">
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="RaiseIssue" component={RaiseIssue} />
           <Stack.Screen
             name="RaiseIssueMapSelector"
             component={RaiseIssueMapSelector}
           />
-          <Stack.Screen
-            name="HomeScreenSearch"
-            component={HomeScreenSearch}
-          />
+          <Stack.Screen name="HomeScreenSearch" component={HomeScreenSearch} />
           <Stack.Screen name="EditProfile" component={EditProfile} />
           <Stack.Screen name="LiveStream" component={LiveStreamScreen} />
           <Stack.Screen name="Services" component={ServicesScreen} />
-          <Stack.Screen name="MeetAndGreetScreen" component={MeetAndGreetScreen} />
+          <Stack.Screen
+            name="MeetAndGreetScreen"
+            component={MeetAndGreetScreen}
+          />
           <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
+          <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

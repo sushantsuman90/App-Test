@@ -47,6 +47,7 @@ const Input: React.FC<InputProps> = ({
 
 const styles = StyleSheet.create({
   container: {
+    marginRight: 18,
     marginLeft: 18,
     marginTop: 18,
   },

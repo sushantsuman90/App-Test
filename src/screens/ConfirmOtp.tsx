@@ -10,7 +10,7 @@ interface NavigationProps {
   navigation: NativeStackNavigationProp<RootStackParamList, 'ConfirmOtp'>;
 }
 
-export default function ConfirmOtp({}: NavigationProps) {
+export default function ConfirmOtp({navigation}: NavigationProps) {
   const [otp, setOtp] = useState('');
   const [seconds, setSeconds] = useState<number>(90);
 
@@ -36,13 +36,15 @@ export default function ConfirmOtp({}: NavigationProps) {
 
   function handleTextChange(text: string): void {
     setOtp(text);
-    console.log(otp)
+    console.log(otp);
   }
 
   return (
     <Surface style={styles.container}>
       <View className="w-[350px] py-3">
-        <Text variant="headlineSmall" className="text-blue py-3">Confirm OTP</Text>
+        <Text variant="headlineSmall" className="text-blue py-3">
+          Confirm OTP
+        </Text>
         <Text>Enter the 4 digit OTP sent for +91 XXXXXXXXXX</Text>
       </View>
       <OTPTextView
@@ -53,12 +55,14 @@ export default function ConfirmOtp({}: NavigationProps) {
         offTintColor="#fff"
         autoFocus
       />
-      <Button onPress={() => {}} style={styles.buttonStyle}>
+      <Button onPress={() => navigation.navigate('HomeScreen')} style={styles.buttonStyle}>
         Confirm
       </Button>
       <View className="flex-row justify-center items-center">
         <Text>Did Not recieved OTP</Text>
-        <PaperButton>Resend</PaperButton>
+        <PaperButton onPress={() => {}}>
+          Resend
+        </PaperButton>
       </View>
 
       <Text>{`${secondsToMinute(seconds)} Seconds`}</Text>
