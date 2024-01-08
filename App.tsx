@@ -18,6 +18,7 @@ import EditProfile from './src/screens/ProfileEditScreen';
 import LiveStreamScreen from './src/screens/LiveStreamScreen';
 import ServicesScreen from './src/screens/ServicesScreen';
 import MeetAndGreetScreen from './src/screens/MeetAndGreetScreen';
+import ConfirmOtp from './src/screens/ConfirmOtp';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export type RootStackParamList = {
   LiveStream: undefined;
   Services: undefined;
   MeetAndGreetScreen: undefined;
+  ConfirmOtp: undefined
 };
 
 function App(): React.JSX.Element {
@@ -53,6 +55,7 @@ function App(): React.JSX.Element {
           <Stack.Screen name="LiveStream" component={LiveStreamScreen} />
           <Stack.Screen name="Services" component={ServicesScreen} />
           <Stack.Screen name="MeetAndGreetScreen" component={MeetAndGreetScreen} />
+          <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
