@@ -3,8 +3,8 @@ import React, {useEffect, useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 import {StyleSheet, View} from 'react-native';
-import OTPTextView from 'react-native-otp-textinput';
 import Button from '../components/Button';
+import OtpInputs from 'react-native-otp-inputs';
 
 interface NavigationProps {
   navigation: NativeStackNavigationProp<RootStackParamList, 'ConfirmOtp'>;
@@ -47,22 +47,27 @@ export default function ConfirmOtp({navigation}: NavigationProps) {
         </Text>
         <Text>Enter the 4 digit OTP sent for +91 XXXXXXXXXX</Text>
       </View>
-      <OTPTextView
-        handleCellTextChange={handleTextChange}
-        containerStyle={styles.topContainerStyle}
-        textInputStyle={styles.textInputStyle}
-        tintColor="#241F61"
-        offTintColor="#fff"
+      <OtpInputs
+        handleChange={handleTextChange}
+        autofillFromClipboard={true}
+        numberOfInputs={4}
+        style={styles.otpContainerStyle}
+        inputStyles={styles.otpInputStyle}
+        focusStyles={styles.otpFocusStyle}
+        // containerStyle={styles.topContainerStyle}
+        // textInputStyle={styles.textInputStyle}
+        // tintColor="#241F61"
+        // offTintColor="#fff"
         autoFocus
       />
-      <Button onPress={() => navigation.navigate('HomeScreen')} style={styles.buttonStyle}>
+      <Button
+        onPress={() => navigation.navigate('HomeScreen')}
+        style={styles.buttonStyle}>
         Confirm
       </Button>
       <View className="flex-row justify-center items-center">
         <Text>Did Not recieved OTP</Text>
-        <PaperButton onPress={() => {}}>
-          Resend
-        </PaperButton>
+        <PaperButton onPress={() => {}}>Resend</PaperButton>
       </View>
 
       <Text>{`${secondsToMinute(seconds)} Seconds`}</Text>
@@ -77,15 +82,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
-  topContainerStyle: {
-    padding: 10,
-    paddingStart: 50,
-    paddingEnd: 50,
+  otpContainerStyle: {
+    flexDirection: 'row',
   },
-  textInputStyle: {
-    borderColor: '#241F61',
-    borderWidth: 1,
-    borderRadius: 8,
+  otpInputStyle: {
+    borderColor: '#000',
+    borderRadius: 1,
+    padding: 12,
+  },
+  otpFocusStyle: {
+    borderColor: '#000',
+    borderRadius: 1,
   },
   buttonStyle: {
     width: 350,
