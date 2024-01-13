@@ -22,7 +22,9 @@ interface RaiseIssueMapSelectorProp {
   >;
 }
 
-export default function RaiseIssueMapSelector({}: RaiseIssueMapSelectorProp) {
+export default function RaiseIssueMapSelector({
+  navigation,
+}: RaiseIssueMapSelectorProp) {
   const [manualAddressVisible, setManualAddressVisible] = React.useState(false);
 
   return (
@@ -81,16 +83,17 @@ export default function RaiseIssueMapSelector({}: RaiseIssueMapSelectorProp) {
           <IconButton icon="map-marker" size={20} />
         </View>
         <TouchableRipple onPress={() => setManualAddressVisible(true)}>
-          <View
-            className="flex-row items-center justify-center border"
-            >
+          <View className="flex-row items-center justify-center border">
             <Text className="text-md">Enter Address Manually</Text>
             <IconButton icon="circle-edit-outline" size={20} />
           </View>
         </TouchableRipple>
       </View>
 
-      <Button className="bg-blue rounded-lg m-4" textColor="#fff">
+      <Button
+        className="bg-blue rounded-lg m-4"
+        textColor="#fff"
+        onPress={() => navigation.navigate('RaiseIssue')}>
         Confirm Location
       </Button>
     </Surface>
