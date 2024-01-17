@@ -23,7 +23,7 @@ export default function ServicesScreen({navigation}: NavigationProps) {
   return (
     <Surface style={styles.container}>
       <Appbar>
-        <Appbar.Action icon="chevron-left" onPress={() => {}} />
+        <Appbar.Action icon="chevron-left" onPress={() => navigation.pop()} />
         <Appbar.Content title="Edit Profile" />
       </Appbar>
       <TouchableRipple

@@ -21,7 +21,7 @@ const HomeScreenSearch = ({}: HomeScreenSearchProps) => {
     <Surface style={styles.container}>
       <Input
         value=""
-        placeholder="How can I help you Today"
+        label="How can I help you Today"
         right={<TextInput.Icon icon="magnify" />}
       />
       <View className="m-4 border rounded-2xl overflow-hidden">

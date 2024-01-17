@@ -12,7 +12,7 @@ const RaisedIssues = ({navigation}: NavigationProps) => {
   return (
     <Surface style={styles.container}>
       <View className="flex-row items-center my-4">
-        <IconButton icon={'chevron-left'} />
+        <IconButton icon={'chevron-left'} onPress={() => navigation.pop()} />
         <Text className="text-xl">Raise Issue History</Text>
       </View>
       <View className="flex-row items-center justify-center my-6">
