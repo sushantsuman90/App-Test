@@ -32,7 +32,7 @@ export default function RaiseIssue({navigation}: RaiseIssueProp) {
     if (fullScreenModalVisible) {
       timerId = setTimeout(() => {
         setFullScreenModalVisible(prev => !prev);
-        navigation.pop();
+        navigation.navigate('RaisedIssues');
       }, 3000);
     }
     return () => {

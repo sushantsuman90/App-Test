@@ -93,7 +93,7 @@ const CustomDrawer = (props: DrawerProps) => {
           {/* <DrawerItemList {...props} /> */}
 
           <TouchableOpacity onPress={()=>navigator.navigate("SavedItems")}><View className='bg-[#231E60] p-3 rounded-xl my-2 flex flex-row justify-between'><Text className='text-white'>Saved Items</Text><Text className='text-white'><Ionicons name="bookmark-outline" size={22} /></Text></View></TouchableOpacity>
-          <TouchableOpacity onPress={()=>navigator.navigate("RaisedIssues")}><View className='bg-[#231E60] p-3 rounded-xl my-2 flex flex-row justify-between'><Text className='text-white'>Raised Issues History</Text><Text className='text-white'><Icon name="history" size={22} /></Text></View></TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigator.navigate("RaisedIssueHistoryList")}><View className='bg-[#231E60] p-3 rounded-xl my-2 flex flex-row justify-between'><Text className='text-white'>Raised Issues History</Text><Text className='text-white'><Icon name="history" size={22} /></Text></View></TouchableOpacity>
           <TouchableOpacity onPress={()=>navigator.navigate("BookedAppointments")}><View className='bg-[#231E60] p-3 rounded-xl my-2 flex flex-row justify-between'><Text className='text-white'>Booked Appointments</Text><Text className='text-white'><Ionicons name="calendar-clear-outline" size={22} /></Text></View></TouchableOpacity>
 
         </View>

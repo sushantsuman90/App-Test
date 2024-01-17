@@ -1,13 +1,12 @@
-
-import { View, Text } from 'react-native'
-import React from 'react'
+import {Surface, Text} from 'react-native-paper';
+import React from 'react';
 
 const BookedAppointments = () => {
   return (
-    <View>
+    <Surface>
       <Text>BookedAppointments</Text>
-    </View>
-  )
-}
+    </Surface>
+  );
+};
 
-export default BookedAppointments
+export default BookedAppointments;
