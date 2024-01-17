@@ -2,7 +2,7 @@ import {View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import TopAppBar from '../components/TopAppBar';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import HomeScreenTab from './tabs/HomeScreenTab';
 import HighlightScreen from './tabs/HighlightScreen';
@@ -27,14 +27,16 @@ const HomeScreen = ({navigation}: HomeScreenProp) => {
             name="Home"
             component={HomeScreenTab}
             options={{
-              tabBarIcon: () => <Icon name="bell" color="#3E3E3E" size={20} />,
+              tabBarIcon: () => <Icon name="home" color="#3E3E3E" size={20} />,
             }}
           />
           <Tab.Screen
             name="Highlights"
             component={HighlightScreen}
             options={{
-              tabBarIcon: () => <Icon name="home" size={20} color="#3E3E3E" />,
+              tabBarIcon: () => (
+                <Icon name="format-list-text" size={20} color="#3E3E3E" />
+              ),
             }}
           />
 
@@ -42,7 +44,7 @@ const HomeScreen = ({navigation}: HomeScreenProp) => {
             name="Scheme"
             component={SchemeScreen}
             options={{
-              tabBarIcon: () => <Icon name="home" size={20} color="#3E3E3E" />,
+              tabBarIcon: () => <Icon name="offer" size={20} color="#3E3E3E" />,
             }}
           />
 
@@ -50,7 +52,9 @@ const HomeScreen = ({navigation}: HomeScreenProp) => {
             name="Attraction"
             component={AttractionScreen}
             options={{
-              tabBarIcon: () => <Icon name="home" size={20} color="#3E3E3E" />,
+              tabBarIcon: () => (
+                <Icon name="star-face" size={20} color="#3E3E3E" />
+              ),
             }}
           />
         </Tab.Navigator>
