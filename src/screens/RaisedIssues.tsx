@@ -22,29 +22,29 @@ const RaisedIssues = ({navigation}: NavigationProps) => {
         </View>
       </View>
 
-      <View className="rounded-2xl border p-4 m-4">
+      <View className="rounded-2xl border border-gray-400 p-4 m-4">
         <View className="flex-row justify-between">
-          <Text className="font-semibold text-blue">ID NO: XXXXXX</Text>
+          <Text className="font-bold text-blue">ID NO: XXXXXX</Text>
           <Text>DD/MM/YY</Text>
         </View>
         <View>
-          <View>
-            <Text className="font-semibold text-blue">Issue Type:</Text>
+          <View className="flex-row">
+            <Text className="font-bold text-blue">Issue Type: </Text>
             <Text>Street Lighting</Text>
           </View>
 
-          <View>
-            <Text className="font-semibold text-blue">Location:</Text>
-            <Text>Street Lighting</Text>
+          <View className="flex-row">
+            <Text className="font-bold text-blue">Location: </Text>
+            <Text>Sector 1, 1858/1, Rajdanga Main</Text>
           </View>
 
-          <View>
-            <Text className="font-semibold text-blue">Additional Info:</Text>
+          <View className="flex-row">
+            <Text className="font-bold text-blue">Additional Info: </Text>
             <Text>Street Lighting</Text>
           </View>
         </View>
       </View>
-      <Button mode="contained" className="rounded-md m-4">
+      <Button mode="contained" className="rounded-md m-4" buttonColor="#241F61">
         Return
       </Button>
 

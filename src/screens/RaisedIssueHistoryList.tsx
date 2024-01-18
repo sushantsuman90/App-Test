@@ -1,9 +1,10 @@
-import {Surface, Text, TouchableRipple, IconButton} from 'react-native-paper';
+import {Surface, Text, TouchableRipple} from 'react-native-paper';
 import React from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
 import TopBar from '../components/TopBar';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface NavigationProps {
   navigation: NativeStackNavigationProp<
@@ -14,7 +15,7 @@ interface NavigationProps {
 
 interface Issues {
   issueName: string;
-  status: 'resolved' | 'pending' | 'cancel';
+  status: 'resolved' | 'pending';
   date: string;
 }
 
@@ -27,17 +28,28 @@ export default function RaisedIssueHistory({navigation}: NavigationProps) {
       <ScrollView>
         {municipalityIssues.map((item, index) => (
           <TouchableRipple
-            className="m-2 mx-4 rounded-2xl"
+            className="m-1 mx-4 rounded-2xl"
             key={index}
             onPress={() => navigation.navigate('RaisedIssueView')}>
-            <View className="flex-row justify-between border p-4 rounded-2xl">
+            <View className="flex-row justify-between border border-gray-400 p-4 rounded-2xl">
               <View className="flex-col justify-between">
-                <Text>{item.issueName}</Text>
-                <Text>{`${capitalizeFirstWord(item.status)} - ${
-                  item.date
-                }`}</Text>
+                <Text className="text-blue font-bold">{item.issueName}</Text>
+                <Text className="text-blue">{`Issue ${capitalizeFirstWord(
+                  item.status,
+                )} - ${item.date}`}</Text>
               </View>
-              <IconButton icon="chevron-right" />
+              <View className="w-12 flex-row justify-center items-center">
+                <Icon
+                  name={
+                    item.status === 'resolved'
+                      ? 'check-circle'
+                      : 'alert-circle-outline'
+                  }
+                  size={24}
+                  color={item.status === 'resolved' ? '#00BE41' : '#cf7a25'}
+                />
+                <Icon name="chevron-right" size={24} color="#241F61" />
+              </View>
             </View>
           </TouchableRipple>
         ))}
@@ -65,7 +77,7 @@ const municipalityIssues: Issues[] = [
   },
   {
     issueName: 'Garbage Collection Delay on Oak Lane',
-    status: 'cancel',
+    status: 'resolved',
     date: '2024-01-16',
   },
   {
@@ -74,7 +86,7 @@ const municipalityIssues: Issues[] = [
     date: '2024-01-14',
   },
   {
-    issueName: 'Overgrown Trees Blocking Road on Pine Street',
+    issueName: 'Overgrown Trees Blocking Road',
     status: 'pending',
     date: '2024-01-13',
   },
@@ -85,7 +97,7 @@ const municipalityIssues: Issues[] = [
   },
   {
     issueName: 'Illegal Dumping Near City Park',
-    status: 'cancel',
+    status: 'pending',
     date: '2024-01-11',
   },
   {
