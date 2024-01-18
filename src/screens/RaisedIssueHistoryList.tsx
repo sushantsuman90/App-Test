@@ -3,6 +3,7 @@ import React from 'react';
 import {StyleSheet, View, ScrollView} from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
+import TopBar from '../components/TopBar';
 
 interface NavigationProps {
   navigation: NativeStackNavigationProp<
@@ -22,18 +23,14 @@ export default function RaisedIssueHistory({navigation}: NavigationProps) {
     str.charAt(0).toUpperCase() + str.slice(1);
   return (
     <Surface style={styles.container}>
-      <View className="flex-row items-center my-4">
-        <IconButton icon="chevron-left" />
-        <Text className="text-xl">Raised Issue History</Text>
-      </View>
+      <TopBar title="Raise Issue History" navigation={navigation} />
       <ScrollView>
         {municipalityIssues.map((item, index) => (
           <TouchableRipple
             className="m-2 mx-4 rounded-2xl"
+            key={index}
             onPress={() => navigation.navigate('RaisedIssueView')}>
-            <View
-              key={index}
-              className="flex-row justify-between border p-4 rounded-2xl">
+            <View className="flex-row justify-between border p-4 rounded-2xl">
               <View className="flex-col justify-between">
                 <Text>{item.issueName}</Text>
                 <Text>{`${capitalizeFirstWord(item.status)} - ${

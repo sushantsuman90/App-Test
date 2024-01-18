@@ -2,8 +2,14 @@ import {ScrollView, StyleSheet} from 'react-native';
 import React from 'react';
 import {Surface} from 'react-native-paper';
 import PosterCard from '../../components/PosterCard';
+import {RootStackParamList} from '../../../App';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
-export default function SchemeScreen() {
+interface Props {
+  navigation: NativeStackNavigationProp<RootStackParamList, 'HomeScreen'>;
+}
+
+export default function SchemeScreen({navigation}: Props) {
   return (
     <Surface style={styles.container}>
       <ScrollView horizontal={true}>
@@ -13,7 +19,10 @@ export default function SchemeScreen() {
             text={item.text}
             icon="language"
             key={index}
-            buttonName='Visit Website'
+            buttonName="Visit Website"
+            onMoreDetailsPress={() => {
+              navigation.navigate('SchemeMoreDetails');
+            }}
             onButtonPress={() => {}}
           />
         ))}

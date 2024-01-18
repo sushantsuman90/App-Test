@@ -8,13 +8,13 @@ import {
   TouchableRipple,
   Portal,
   Modal,
+  TextInput,
 } from 'react-native-paper';
 import DropDown from 'react-native-paper-dropdown';
 import RaiseIssueTopAppBar from '../components/RaiseIssueTopAppBar';
 import RaiseIssueModalHeading from '../components/ModalHeading';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../App';
-import Input from '../components/Input';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface RaiseIssueProp {
@@ -104,16 +104,19 @@ export default function RaiseIssue({navigation}: RaiseIssueProp) {
           </View>
 
           <TouchableRipple
-            className="border p-3 rounded-2xl"
+            className="border border-gray-500 p-3 rounded"
             onPress={() => navigation.navigate('RaiseIssueMapSelector')}>
             <View className="">
-              <Text>Enter the Location of the Incident</Text>
+              <Text className="text-gray-700">
+                Enter the Location of the Incident
+              </Text>
             </View>
           </TouchableRipple>
 
-          <Input
+          <TextInput
             placeholder="Write about the incident here"
             label="Additional Info"
+            mode="outlined"
             value=""
           />
         </View>

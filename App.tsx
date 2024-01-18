@@ -26,6 +26,10 @@ import RaisedIssues from './src/screens/RaisedIssues';
 import CustomDrawer from './src/components/CustomDrawer';
 import BookedAppointments from './src/screens/BookedAppointments';
 import RaiseIssueHistoryList from './src/screens/RaisedIssueHistoryList';
+import RatingsAndReviews from './src/screens/RatingsAndReviews';
+import BugsReviews from './src/screens/BugsReviews';
+import AttractionMoreDetails from './src/screens/AttractionsMoreDetails';
+import SchemeMoreDetails from './src/screens/SchemeMoreDetails';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -46,6 +50,10 @@ export type RootStackParamList = {
   BookmarkedAppointments: undefined;
   RaiseIssueHistoryList: undefined;
   RaisedIssueView: undefined;
+  RatingsAndReviews: undefined;
+  BugsReviews: undefined;
+  SchemeMoreDetails: undefined;
+  AttractionMoreDetails: undefined;
 };
 
 function App(): React.JSX.Element {
@@ -112,6 +120,13 @@ function Root() {
       <Stack.Screen name="MeetAndGreetScreen" component={MeetAndGreetScreen} />
       <Stack.Screen name="ConfirmOtp" component={ConfirmOtp} />
       <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+      <Stack.Screen name="RatingsAndReviews" component={RatingsAndReviews} />
+      <Stack.Screen name="BugsReviews" component={BugsReviews} />
+      <Stack.Screen
+        name="AttractionMoreDetails"
+        component={AttractionMoreDetails}
+      />
+      <Stack.Screen name="SchemeMoreDetails" component={SchemeMoreDetails} />
     </Stack.Navigator>
   );
 }

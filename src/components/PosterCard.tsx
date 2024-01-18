@@ -10,6 +10,7 @@ interface Props {
   icon: string;
   buttonName: string;
   onButtonPress: () => void;
+  onMoreDetailsPress: () => void;
 }
 
 export default function PosterCard(props: Props) {
@@ -28,11 +29,7 @@ export default function PosterCard(props: Props) {
             <Text>{props.heading}</Text>
             <TouchableRipple>
               <View className="px-1 bg-white flex-row justify-center items-center rounded">
-                <Icon
-                  name="share"
-                  size={20}
-                  className="text-blue text-xs"
-                />
+                <Icon name="share" size={20} className="text-blue text-xs" />
                 <Text className="m-1 text-blue text-xs">Share</Text>
               </View>
             </TouchableRipple>
@@ -48,7 +45,10 @@ export default function PosterCard(props: Props) {
           icon={() => <Icon name={props.icon} size={20} color="white" />}>
           {props.buttonName}
         </Button>
-        <Button mode="contained" className="bg-blue rounded-2xl p-1 px-2">
+        <Button
+          mode="contained"
+          className="bg-blue rounded-2xl p-1 px-2"
+          onPress={props.onMoreDetailsPress}>
           More Details
         </Button>
       </View>

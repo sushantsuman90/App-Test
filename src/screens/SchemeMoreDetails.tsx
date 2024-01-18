@@ -8,14 +8,14 @@ import TopBar from '../components/TopBar';
 interface NavigationProps {
   navigation: NativeStackNavigationProp<
     RootStackParamList,
-    'SavedItems'
+    'SchemeMoreDetails'
   >;
 }
 
-export default function SavedItems({navigation}: NavigationProps) {
+export default function SchemeMoreDetails({navigation}: NavigationProps) {
   return (
     <Surface style={styles.container}>
-      <TopBar navigation={navigation} title="Saved Items" />
+      <TopBar navigation={navigation} title="More Details" />
     </Surface>
   );
 }
